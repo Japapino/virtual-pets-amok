@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class PetShelterTest {
 	private PetShelter underTest;
-	private OrganicPet pet;
+	private Dog pet;
 	private static final String petDescription = "VPET";
 	private static final String petName = "TEST";
 
@@ -20,7 +20,7 @@ public class PetShelterTest {
 	public void setup() {
 		// arrange
 		underTest = new PetShelter();
-		pet = new OrganicPet(petName, petDescription);
+		pet = new Dog(petName, petDescription);
 		underTest.addPet(pet);
 
 	}
@@ -28,21 +28,21 @@ public class PetShelterTest {
 	@Test
 	public void shouldAddVirtualPet() {
 		underTest.addPet(pet);
-		OrganicPet retrieved = underTest.findPet(petName);
+		Dog retrieved = underTest.findPet(petName);
 		assertThat(retrieved, is(pet));
 	}
 
 	@Test
 	public void shouldBeAbletoAddMultiplePets() {
 		// arrange
-		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
+		Dog anotherPet = new Dog("TEST2", "VPET2");
 
 		// act
 		underTest.addPet(pet);
 		underTest.addPet(anotherPet);
 
 		// assert
-		Collection<OrganicPet> pets = underTest.allPets();
+		Collection<Dog> pets = underTest.allPets();
 
 		// using matchers
 		assertThat(pets, containsInAnyOrder(pet, anotherPet));
@@ -59,7 +59,7 @@ public class PetShelterTest {
 		underTest.addPet(pet);
 		underTest.adopt(petName);
 
-		OrganicPet found = underTest.findPet(petName);
+		Dog found = underTest.findPet(petName);
 		assertThat(found, is(nullValue()));
 	}
 
@@ -74,7 +74,7 @@ public class PetShelterTest {
 
 	@Test
 	public void hungerShouldReduceForBoth() {
-		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
+		Dog anotherPet = new Dog("TEST2", "VPET2");
 		underTest.addPet(pet);
 		underTest.addPet(anotherPet);
 		pet.play();
@@ -98,7 +98,7 @@ public class PetShelterTest {
 
 	@Test
 	public void statsShouldChangeOverTimeForAllPets() {
-		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
+		Dog anotherPet = new Dog("TEST2", "VPET2");
 		underTest.addPet(pet);
 		underTest.addPet(anotherPet);
 		underTest.tickIncreaseAll();
@@ -110,33 +110,33 @@ public class PetShelterTest {
 
 	@Test
 	public void shouldNotifyForExcessWaste() {
-		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
+		Dog anotherPet = new Dog("TEST2", "VPET2");
 		underTest.addPet(anotherPet);
 		underTest.feedAll();
 		underTest.feedAll();
-		int check = pet.poopCheck();
-		int check1 = anotherPet.poopCheck();
+		int check = pet.getPoops();
+		int check1 = anotherPet.getPoops();
 		assertEquals(1, check);
 		assertEquals(1, check1);
 	}
 
 	@Test
 	public void poopsShouldBuildUp() {
-		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
+		Dog anotherPet = new Dog("TEST2", "VPET2");
 		underTest.addPet(anotherPet);
 		underTest.feedAll();
 		underTest.feedAll();
 		underTest.feedAll();
 		underTest.feedAll();
-		int check = pet.poopCheck();
-		int check1 = anotherPet.poopCheck();
+		int check = pet.getPoops();
+		int check1 = anotherPet.getPoops();
 		assertEquals(2, check);
 		assertEquals(2, check1);
 	}
 
 	@Test
 	public void shouldCheckCleanlinessAndReturnUncleanKeys() {
-		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
+		Dog anotherPet = new Dog("TEST2", "VPET2");
 		underTest.addPet(anotherPet);
 		underTest.feedAll();
 		underTest.feedAll();

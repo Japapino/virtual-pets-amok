@@ -2,7 +2,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class RoboticPets {
+public class RoboticPetsTest {
 	private RoboPet underTest;
 	private static final String petDescription = "RPET";
 	private static final String petName = "TEST";
@@ -20,7 +20,7 @@ public class RoboticPets {
 	 @Test
 	 public void shouldHaveDefaultStats() {
 		 int check1 = underTest.getHealth(); 
-		 int check2 = underTest.checkRust(); 
+		 int check2 = underTest.getRust(); 
 		 Assert.assertEquals(check1,10); 
 		 Assert.assertEquals(check2,0); 
 	 }

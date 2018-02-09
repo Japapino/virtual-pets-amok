@@ -1,5 +1,5 @@
 
-public class OrganicPet extends VirtualPet{
+public class Dog extends VirtualPet{
 	// default stats
 	private int hunger;
 	private int thirst;
@@ -7,7 +7,7 @@ public class OrganicPet extends VirtualPet{
 	private int poops;
 
 	// constructor
-	public OrganicPet(String nameInput, String description) {
+	public Dog(String nameInput, String description) {
 		this.name = nameInput;
 		this.description = description;
 		health = 100;
@@ -18,7 +18,7 @@ public class OrganicPet extends VirtualPet{
 	}
 
 	// constructor to set default values
-	public OrganicPet(String name, String description, int hunger, int thirst, int health) {
+	public Dog(String name, String description, int hunger, int thirst, int health) {
 		this.name = name;
 		this.description = description;
 		this.health = health;
@@ -50,7 +50,7 @@ public class OrganicPet extends VirtualPet{
 	public void tickIncrease() {
 		health -= 1;
 		hunger += 2;
-		boredom += 5;
+		boredom += 10;
 		thirst += 1;
 		waste += 3;
 		this.checkStats();
@@ -59,7 +59,7 @@ public class OrganicPet extends VirtualPet{
 	public void giveTreat() {
 		thirst += 3;
 		hunger -= 1;
-		health -= 3;
+		health -= 5;
 		waste += 5;
 		this.checkStats();
 	}
@@ -67,7 +67,7 @@ public class OrganicPet extends VirtualPet{
 	public void play() {
 		hunger += 10;
 		health += 5;
-		boredom -= 10;
+		boredom -= 15;
 		thirst += 10;
 		this.checkStats();
 	}
@@ -75,7 +75,7 @@ public class OrganicPet extends VirtualPet{
 	public void giveWater() {
 		hunger -= 3;
 		thirst -= 10;
-		boredom += 5;
+		boredom += 10;
 		waste += 3;
 		this.checkStats();
 	}
@@ -90,15 +90,25 @@ public class OrganicPet extends VirtualPet{
 
 	public void cleanUp() {
 		waste = 0;
-		boredom += 20;
+		boredom += 25;
 		poops = 0;
+		this.checkStats(); 
 
 	}
-
-	// getters
-	public String getName() {
-		return this.name;
+	public void takeWalk() {
+		boredom-=5; 
+		waste=0; 
+		poops=0; 
+		hunger+=5; 
+		thirst+=10;
+		health+=10; 
+		this.checkStats();
 	}
+
+//	// getters
+//	public String getName() {
+//		return this.name;
+//	}
 
 	public int checkWaste() {
 		return waste;
@@ -120,11 +130,12 @@ public class OrganicPet extends VirtualPet{
 		return thirst;
 	}
 
-	public int poopCheck() {
+	public int getPoops() {
 
 		if (this.waste >= 10) {
 			poops += (waste / 10);
 		}
 		return poops;
 	}
+
 }

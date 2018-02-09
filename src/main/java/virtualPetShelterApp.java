@@ -5,9 +5,9 @@ public class virtualPetShelterApp {
 		Scanner input = new Scanner(System.in);
 		String response = "";
 		PetShelter myShelter = new PetShelter();
-		OrganicPet pet1 = new OrganicPet("Socks", "Cat");
-		OrganicPet pet2 = new OrganicPet("Crazy", "Dog");
-		OrganicPet pet3 = new OrganicPet("Cloud", "Fat cat", 10, 5, 2);
+		Dog pet1 = new Dog("Socks", "Cat");
+		Dog pet2 = new Dog("Crazy", "Dog");
+		Dog pet3 = new Dog("Cloud", "Fat cat", 10, 5, 2);
 		myShelter.addPet(pet1);
 		myShelter.addPet(pet2);
 		myShelter.addPet(pet3);
@@ -64,11 +64,11 @@ public class virtualPetShelterApp {
 					System.out.println("On a scale of 1-10 how healthy do they seem?");
 					int health = input.nextInt();
 
-					OrganicPet temp = new OrganicPet(name, description, hunger, thirst, health);
+					Dog temp = new Dog(name, description, hunger, thirst, health);
 					myShelter.addPet(temp);
 					input.nextLine();
 				} else {
-					OrganicPet temp = new OrganicPet(name, description);
+					Dog temp = new Dog(name, description);
 					myShelter.addPet(temp);
 				}
 

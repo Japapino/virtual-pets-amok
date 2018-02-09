@@ -6,17 +6,17 @@ import java.util.HashMap;
 
 public class PetShelter {
 
-	private Map<String, OrganicPet> inhabitants = new HashMap<String, OrganicPet>();
+	private Map<String, Dog> inhabitants = new HashMap<String, Dog>();
 
-	public void addPet(OrganicPet pet) {
+	public void addPet(Dog pet) {
 		inhabitants.put(pet.name, pet);
 	}
 
-	public OrganicPet findPet(String name) {
+	public Dog findPet(String name) {
 		return inhabitants.get(name);
 	}
 
-	public Collection<OrganicPet> allPets() {
+	public Collection<Dog> allPets() {
 		return inhabitants.values();
 	}
 
@@ -25,13 +25,13 @@ public class PetShelter {
 	}
 
 	public void feedAll() {
-		for (Entry<String, OrganicPet> entry : inhabitants.entrySet()) {
+		for (Entry<String, Dog> entry : inhabitants.entrySet()) {
 			entry.getValue().giveFood();
 		}
 	}
 
 	public void waterAll() {
-		for (Entry<String, OrganicPet> entry : inhabitants.entrySet()) {
+		for (Entry<String, Dog> entry : inhabitants.entrySet()) {
 			entry.getValue().giveWater();
 		}
 	}
@@ -42,7 +42,7 @@ public class PetShelter {
 	}
 
 	public void tickIncreaseAll() {
-		for (Entry<String, OrganicPet> entry : inhabitants.entrySet()) {
+		for (Entry<String, Dog> entry : inhabitants.entrySet()) {
 			entry.getValue().tickIncrease();
 		}
 	}
@@ -54,7 +54,7 @@ public class PetShelter {
 		System.out.print("|Boredom");
 		System.out.println("|Waste\t");
 		System.out.println("--------|-------|-------|-------|-------");
-		for (Entry<String, OrganicPet> entry : inhabitants.entrySet()) {
+		for (Entry<String, Dog> entry : inhabitants.entrySet()) {
 			System.out.print(entry.getValue().getName() + "\t");
 			System.out.print("|" + entry.getValue().getHunger() + "\t");
 			System.out.print("|" + entry.getValue().getThirst() + "\t");
@@ -74,7 +74,7 @@ public class PetShelter {
 	}
 
 	public void cleanHabitats() {
-		for (Entry<String, OrganicPet> entry : inhabitants.entrySet()) {
+		for (Entry<String, Dog> entry : inhabitants.entrySet()) {
 			entry.getValue().cleanUp();
 			;
 		}
@@ -86,8 +86,8 @@ public class PetShelter {
 
 	public String cleanliness() {
 		String needsCleaning = "";
-		for(OrganicPet pet: inhabitants.values()) {
-			if (pet.poopCheck() >= 1) {
+		for(Dog pet: inhabitants.values()) {
+			if (pet.getPoops() >= 1) {
 				needsCleaning += pet.getName() + " ";
 			}
 		}

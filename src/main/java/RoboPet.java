@@ -25,4 +25,5 @@ public class RoboPet extends VirtualPet{
 		rust -=2; 
 	}
 
+
 }
