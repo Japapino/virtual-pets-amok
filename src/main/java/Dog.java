@@ -1,14 +1,15 @@
 
 public abstract class Dog extends VirtualPet{
 
-	private int waste;
+
 	private int thirst;
 	private int hunger;
 	private int boredom;
 	private int poops;
 
-	public OrganicDog(String name, String description) {
-		super(name, description);
+	public Dog(String name, String description) {
+		this.name = name; 
+		this.description = description;
 		health = 100;
 		hunger = 0;
 		thirst = 0;
@@ -18,8 +19,9 @@ public abstract class Dog extends VirtualPet{
 
 	}
 
-	public OrganicDog(String name, String description, int hunger, int thirst, int health) {
-		super(name, description);
+	public Dog(String name, String description, int hunger, int thirst, int health) {
+		this.name = name;
+		this.description = description; 
 		this.health = health;
 		this.hunger = hunger;
 		this.boredom = 0;
