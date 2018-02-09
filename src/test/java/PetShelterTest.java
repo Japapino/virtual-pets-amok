@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class PetShelterTest {
 	private PetShelter underTest;
-	private VirtualPet pet;
+	private OrganicPet pet;
 	private static final String petDescription = "VPET";
 	private static final String petName = "TEST";
 
@@ -20,7 +20,7 @@ public class PetShelterTest {
 	public void setup() {
 		// arrange
 		underTest = new PetShelter();
-		pet = new VirtualPet(petName, petDescription);
+		pet = new OrganicPet(petName, petDescription);
 		underTest.addPet(pet);
 
 	}
@@ -28,21 +28,21 @@ public class PetShelterTest {
 	@Test
 	public void shouldAddVirtualPet() {
 		underTest.addPet(pet);
-		VirtualPet retrieved = underTest.findPet(petName);
+		OrganicPet retrieved = underTest.findPet(petName);
 		assertThat(retrieved, is(pet));
 	}
 
 	@Test
 	public void shouldBeAbletoAddMultiplePets() {
 		// arrange
-		VirtualPet anotherPet = new VirtualPet("TEST2", "VPET2");
+		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
 
 		// act
 		underTest.addPet(pet);
 		underTest.addPet(anotherPet);
 
 		// assert
-		Collection<VirtualPet> pets = underTest.allPets();
+		Collection<OrganicPet> pets = underTest.allPets();
 
 		// using matchers
 		assertThat(pets, containsInAnyOrder(pet, anotherPet));
@@ -59,7 +59,7 @@ public class PetShelterTest {
 		underTest.addPet(pet);
 		underTest.adopt(petName);
 
-		VirtualPet found = underTest.findPet(petName);
+		OrganicPet found = underTest.findPet(petName);
 		assertThat(found, is(nullValue()));
 	}
 
@@ -74,7 +74,7 @@ public class PetShelterTest {
 
 	@Test
 	public void hungerShouldReduceForBoth() {
-		VirtualPet anotherPet = new VirtualPet("TEST2", "VPET2");
+		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
 		underTest.addPet(pet);
 		underTest.addPet(anotherPet);
 		pet.play();
@@ -98,7 +98,7 @@ public class PetShelterTest {
 
 	@Test
 	public void statsShouldChangeOverTimeForAllPets() {
-		VirtualPet anotherPet = new VirtualPet("TEST2", "VPET2");
+		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
 		underTest.addPet(pet);
 		underTest.addPet(anotherPet);
 		underTest.tickIncreaseAll();
@@ -110,7 +110,7 @@ public class PetShelterTest {
 
 	@Test
 	public void shouldNotifyForExcessWaste() {
-		VirtualPet anotherPet = new VirtualPet("TEST2", "VPET2");
+		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
 		underTest.addPet(anotherPet);
 		underTest.feedAll();
 		underTest.feedAll();
@@ -122,7 +122,7 @@ public class PetShelterTest {
 
 	@Test
 	public void poopsShouldBuildUp() {
-		VirtualPet anotherPet = new VirtualPet("TEST2", "VPET2");
+		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
 		underTest.addPet(anotherPet);
 		underTest.feedAll();
 		underTest.feedAll();
@@ -136,7 +136,7 @@ public class PetShelterTest {
 
 	@Test
 	public void shouldCheckCleanlinessAndReturnUncleanKeys() {
-		VirtualPet anotherPet = new VirtualPet("TEST2", "VPET2");
+		OrganicPet anotherPet = new OrganicPet("TEST2", "VPET2");
 		underTest.addPet(anotherPet);
 		underTest.feedAll();
 		underTest.feedAll();
