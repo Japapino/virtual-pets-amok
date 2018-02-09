@@ -3,10 +3,10 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CatTest {
+public class RoboCatTest {
 	@Test
 	public void shouldHaveDefaultStats() {
-		Cat underTest = new Cat("","");
+		RoboCat underTest = new RoboCat("","");
 		int health = underTest.getHealth();
 		Assert.assertEquals(100, health);
 		int hunger = underTest.getHunger();
@@ -15,27 +15,27 @@ public class CatTest {
 
 	@Test
 	public void shouldStayInbounds() {
-		Cat underTest = new Cat("","");
+		RoboCat underTest = new RoboCat("","");
 		underTest.play();
 		Assert.assertEquals(0, underTest.getBoredom());
 	}
 
 	@Test
 	public void shouldAssignName() {
-		Cat underTest = new Cat("Billy","");
+		RoboCat underTest = new RoboCat("Billy","");
 		Assert.assertEquals("Billy", underTest.getName());
 	}
 
 	@Test
 	public void shouldIncreaseWaste() {
-		Cat underTest = new Cat("","");
+		RoboCat underTest = new RoboCat("","");
 		underTest.giveTreat();
 		Assert.assertEquals(5, underTest.checkWaste());
 	}
 
 	@Test
 	public void tickShouldChangeStats() {
-		Cat underTest = new Cat("","");
+		RoboCat underTest = new RoboCat("","");
 		underTest.tickIncrease();
 		Assert.assertEquals(99, underTest.getHealth());
 		Assert.assertEquals(2, underTest.getHunger());

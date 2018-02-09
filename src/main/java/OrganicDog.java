@@ -61,7 +61,7 @@ public class OrganicDog extends Dog implements Organic {
 		this.checkStats();
 	}
 	
-	@Override
+
 	public void play() {
 		hunger += 10;
 		health += 5;

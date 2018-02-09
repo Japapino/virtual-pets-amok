@@ -1,5 +1,5 @@
 
-public class Cat extends VirtualPet{
+public class RoboCat extends VirtualPet{
 	// default stats
 	private int hunger;
 	private int thirst;
@@ -7,7 +7,7 @@ public class Cat extends VirtualPet{
 	private int poops;
 
 	// constructor
-	public Cat(String nameInput, String description) {
+	public RoboCat(String nameInput, String description) {
 		this.name = nameInput;
 		this.description = description;
 		health = 100;
@@ -18,7 +18,7 @@ public class Cat extends VirtualPet{
 	}
 
 	// constructor to set default values
-	public Cat(String name, String description, int hunger, int thirst, int health) {
+	public RoboCat(String name, String description, int hunger, int thirst, int health) {
 		this.name = name;
 		this.description = description;
 		this.health = health;
