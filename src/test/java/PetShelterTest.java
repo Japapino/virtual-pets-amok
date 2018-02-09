@@ -102,8 +102,8 @@ public class PetShelterTest {
 		underTest.addPet(pet);
 		underTest.addPet(anotherPet);
 		underTest.tickIncreaseAll();
-		int check = pet.checkWaste();
-		int check1 = anotherPet.checkWaste();
+		int check = pet.getWaste();
+		int check1 = anotherPet.getWaste();
 		assertEquals(3, check);
 		assertEquals(3, check1);
 	}

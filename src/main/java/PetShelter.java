@@ -59,7 +59,7 @@ public class PetShelter {
 			System.out.print("|" + entry.getValue().getHunger() + "\t");
 			System.out.print("|" + entry.getValue().getThirst() + "\t");
 			System.out.print("|" + entry.getValue().getBoredom() + "\t");
-			System.out.println("|" + entry.getValue().checkWaste() + "\t");
+			System.out.println("|" + entry.getValue().getWaste() + "\t");
 		}
 		System.out.println("--------|-------|-------|-------|------");
 	}

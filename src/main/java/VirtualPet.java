@@ -20,4 +20,8 @@ public abstract class VirtualPet {
 	public int getBoredom() {
 		return boredom; 
 	}
+	
+	public void checkStats() {
+		
+	}
 }

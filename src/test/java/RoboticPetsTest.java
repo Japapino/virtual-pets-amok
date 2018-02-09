@@ -3,13 +3,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class RoboticPetsTest {
-	private RoboPet underTest;
+	private RoboDog underTest;
 	private static final String petDescription = "RPET";
 	private static final String petName = "TEST";
 
 	@Before
 	public void setup() {
-		underTest = new RoboPet(petName, petDescription);
+		underTest = new RoboDog(petName, petDescription);
 	}
 
 	@Test
