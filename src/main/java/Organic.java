@@ -1,11 +1,11 @@
 
 public class Organic extends VirtualPet{
 	
-	private int waste;
-	private int thirst;
-	private int hunger;
-	private int boredom;
-	private int poops;
+	protected int waste;
+	protected int thirst;
+	protected int hunger;
+	protected int boredom;
+	protected int poops;
 
 	public Organic(String name, String description) {
 		this.name = name;
@@ -96,18 +96,6 @@ public class Organic extends VirtualPet{
 		this.checkStats();
 
 	}
-
-	public void takeWalk() {
-		boredom -= 5;
-		waste = 0;
-		poops = 0;
-		hunger += 5;
-		thirst += 10;
-		health += 10;
-		this.checkStats();
-	}
-	
-
 
 	public int getWaste() {
 		return waste;
