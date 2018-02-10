@@ -5,9 +5,10 @@ public class virtualPetShelterApp {
 		Scanner input = new Scanner(System.in);
 		String response = "";
 		PetShelter myShelter = new PetShelter();
-		Dog pet1 = new Dog("Socks", "Cat");
-		Dog pet2 = new Dog("Crazy", "Dog");
-		Dog pet3 = new Dog("Cloud", "Fat cat", 10, 5, 2);
+		OrganicCat pet1 = new OrganicCat("Socks", "Cat");
+		OrganicDog pet2 = new OrganicDog("Crazy", "Dog");
+		RoboDog pet3 = new RoboDog("Cloud", "Robo Dog", 10, 5, 2);
+		RoboCat pet4 = new RoboCat("Potato", "Robo Cat")
 		myShelter.addPet(pet1);
 		myShelter.addPet(pet2);
 		myShelter.addPet(pet3);

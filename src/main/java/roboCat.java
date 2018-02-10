@@ -1,7 +1,7 @@
 
-public class roboCat extends Robotic{
+public class RoboCat extends Robotic{
 	
-	public roboCat (String name, String description) {
+	public RoboCat (String name, String description) {
 		super(name,description);
 	}
 	

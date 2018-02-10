@@ -12,15 +12,6 @@ public class Robotic extends VirtualPet{
 		boredom = 0;
 	}
 
-	public Robotic(String name, String description, int rust, int oilLevel, int health) {
-		this.name = name;
-		this.description = description; 
-		this.health = health;
-		this.rust = rust;
-		this.boredom = 0;
-		this.oilLevel = oilLevel;
-
-	}
 
 	public void checkStats() {
 		if (this.health > 100) {

@@ -6,17 +6,17 @@ import java.util.HashMap;
 
 public class PetShelter {
 
-	private Map<String, Dog> inhabitants = new HashMap<String, Dog>();
+	private Map<String, VirtualPet> inhabitants = new HashMap<String, VirtualPet>();
 
-	public void addPet(Dog pet) {
+	public void addPet(VirtualPet pet) {
 		inhabitants.put(pet.name, pet);
 	}
 
-	public Dog findPet(String name) {
+	public VirtualPet findPet(String name) {
 		return inhabitants.get(name);
 	}
 
-	public Collection<Dog> allPets() {
+	public Collection<VirtualPet> allPets() {
 		return inhabitants.values();
 	}
 
@@ -25,7 +25,8 @@ public class PetShelter {
 	}
 
 	public void feedAll() {
-		for (Entry<String, Dog> entry : inhabitants.entrySet()) {
+		for (Entry<String, VirtualPet> entry : inhabitants.entrySet()) {
+			if(entry instanceof Organic)
 			entry.getValue().giveFood();
 		}
 	}
