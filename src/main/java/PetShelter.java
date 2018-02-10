@@ -26,8 +26,8 @@ public class PetShelter {
 
 	public void feedAll() {
 		for (Entry<String, VirtualPet> entry : inhabitants.entrySet()) {
-			if(entry instanceof Organic)
-			entry.getValue().giveFood();
+			if (entry instanceof Organic)
+				((Organic) entry).giveFood();;
 		}
 	}
 
@@ -87,12 +87,12 @@ public class PetShelter {
 
 	public String cleanliness() {
 		String needsCleaning = "";
-		for(Dog pet: inhabitants.values()) {
+		for (Dog pet : inhabitants.values()) {
 			if (pet.getPoops() >= 1) {
 				needsCleaning += pet.getName() + " ";
 			}
 		}
-		
+
 		return needsCleaning;
 	}
 
