@@ -46,7 +46,8 @@ public class Organic extends VirtualPet{
 			this.waste = 0;
 		}
 	}
-
+	
+	@Override
 	public void tickIncrease() {
 		health -= 1;
 		hunger += 2;

@@ -24,4 +24,10 @@ public abstract class VirtualPet {
 	public void checkStats() {
 		
 	}
+	
+	public void tickIncrease() {
+		
+	}
+	
+
 }

@@ -27,23 +27,29 @@ public class PetShelter {
 	public void feedAll() {
 		for (Entry<String, VirtualPet> entry : inhabitants.entrySet()) {
 			if (entry instanceof Organic)
-				((Organic) entry).giveFood();;
+				((Organic) entry).giveFood();
 		}
 	}
 
 	public void waterAll() {
-		for (Entry<String, Dog> entry : inhabitants.entrySet()) {
-			entry.getValue().giveWater();
+		for (Entry<String, VirtualPet> entry : inhabitants.entrySet()) {
+			if (entry instanceof Organic)
+				((Organic) entry).giveWater();
+			;
 		}
 	}
 
 	public void playWith(String name) {
-		inhabitants.get(name).play();
-
+		for (Entry<String, VirtualPet> entry : inhabitants.entrySet()) {
+			if (entry instanceof Organic)
+				((Organic) entry).play();
+			if (entry instanceof Robotic)
+				((Robotic) entry).play();
+		}
 	}
 
 	public void tickIncreaseAll() {
-		for (Entry<String, Dog> entry : inhabitants.entrySet()) {
+		for (Entry<String, VirtualPet> entry : inhabitants.entrySet()) {
 			entry.getValue().tickIncrease();
 		}
 	}

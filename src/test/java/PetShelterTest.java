@@ -67,26 +67,29 @@ public class PetShelterTest {
 	 assertThat(hungerBefore1-hungerAfter1, is(0));
 	 }
 	
-	// @Test
-	// public void boredomShouldGoDown() {
-	// pet.cleanUp();
-	// pet.play();
-	// int check = pet.getBoredom();
-	// assertEquals(10, check);
-	// }
-	//
-	// @Test
-	// public void statsShouldChangeOverTimeForAllPets() {
-	// Dog anotherPet = new Dog("TEST2", "VPET2");
-	// underTest.addPet(pet);
-	// underTest.addPet(anotherPet);
-	// underTest.tickIncreaseAll();
-	// int check = pet.getWaste();
-	// int check1 = anotherPet.getWaste();
-	// assertEquals(3, check);
-	// assertEquals(3, check1);
-	// }
-	//
+	 @Test
+	 public void boredomShouldGoDown() {
+	 oDog.cleanUp();
+	 oDog.play();
+	 rCat.maintain();
+	 rCat.play(); 
+	 int check = oDog.getBoredom();
+	 assertEquals(10, check);
+	 assertEquals(10,check); 
+	 }
+	 
+	
+	 @Test
+	 public void statsShouldChangeOverTimeForAllPets() {
+	 underTest.addPet(oDog);
+	 underTest.addPet(rCat);
+	 underTest.tickIncreaseAll();
+	 int check = oDog.getWaste();
+	 int check1 = rCat.getOilLevel();
+	 assertEquals(3, check);
+	 assertEquals(24, check1);
+	 }
+	
 	// @Test
 	// public void shouldNotifyForExcessWaste() {
 	// Dog anotherPet = new Dog("TEST2", "VPET2");

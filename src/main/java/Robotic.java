@@ -10,6 +10,7 @@ public class Robotic extends VirtualPet{
 		this.description = description; 
 		health = 100;
 		boredom = 0;
+		oilLevel = 25; 
 	}
 
 
@@ -27,7 +28,8 @@ public class Robotic extends VirtualPet{
 			this.rust = 0;
 		}
 	}
-
+	
+	@Override
 	public void tickIncrease() {
 		health -= 1;
 		boredom += 10;
