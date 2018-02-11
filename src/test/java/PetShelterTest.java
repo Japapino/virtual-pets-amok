@@ -48,9 +48,10 @@ public class PetShelterTest {
 		underTest.addPet(oDog);
 		oDog.play();
 		oDog.play();
+		int hungerBefore = oDog.getHunger();
 		oDog.giveFood();
-		int check = oDog.getHunger();
-		assertEquals(10, check);
+		int hungerAfter = oDog.getHunger();
+		assertThat(hungerBefore-hungerAfter, is(10));
 	}
 
 	 @Test
@@ -58,13 +59,14 @@ public class PetShelterTest {
 	 underTest.addPet(oDog);
 	 underTest.addPet(oCat);
 	 oDog.play();
+	 oCat.play(); 
 	 int hungerBefore = oDog.getHunger(); 
 	 int hungerBefore1= oCat.getHunger(); 
 	 underTest.feedAll();
 	 int hungerAfter = oDog.getHunger();
 	 int hungerAfter1 = oCat.getHunger(); 
-	 assertThat(hungerBefore-hungerAfter, is(0));
-	 assertThat(hungerBefore1-hungerAfter1, is(0));
+	 assertThat(hungerBefore-hungerAfter, is(5));
+	 assertThat(hungerBefore1-hungerAfter1, is(5));
 	 }
 	
 	 @Test
@@ -83,25 +85,37 @@ public class PetShelterTest {
 	 public void statsShouldChangeOverTimeForAllPets() {
 	 underTest.addPet(oDog);
 	 underTest.addPet(rCat);
+	 int thirstBefore = oDog.getThirst();
 	 underTest.tickIncreaseAll();
-	 int check = oDog.getWaste();
+	 int thirstAfter = oDog.getThirst();
 	 int check1 = rCat.getOilLevel();
-	 assertEquals(3, check);
+	 assertThat(thirstAfter-thirstBefore,is(2)); 
 	 assertEquals(24, check1);
 	 }
+	 
+//	 @Test
+//	 public void shouldIncreaseThirstForOrganics() {
+//		 underTest.addPet(oDog);
+//		 underTest.addPet(oCat);
+//		 underTest.addPet(rCat);
+//		 underTest.addPet(rDog);
+//		 underTest.tickIncreaseAll();
+//		 //underTest.waterAll(); 
+//		 int check1 = oDog.getThirst();
+//		 int check2 = oCat.getThirst(); 
+//		 assertThat(check1, is(1)); 
+//		 
+//	 }
 	
-	// @Test
-	// public void shouldNotifyForExcessWaste() {
-	// Dog anotherPet = new Dog("TEST2", "VPET2");
-	// underTest.addPet(anotherPet);
-	// underTest.feedAll();
-	// underTest.feedAll();
-	// int check = pet.getPoops();
-	// int check1 = anotherPet.getPoops();
-	// assertEquals(1, check);
-	// assertEquals(1, check1);
-	// }
-	//
+//	 @Test
+//	 public void shouldNotifyForExcessWaste() {
+//	 underTest.addPet(oDog);
+//	 underTest.feedAll();
+//	 underTest.feedAll();
+//	 int check = oDog.getWaste();
+//	 assertEquals(1, check);
+//	 }
+	
 	// @Test
 	// public void poopsShouldBuildUp() {
 	// Dog anotherPet = new Dog("TEST2", "VPET2");

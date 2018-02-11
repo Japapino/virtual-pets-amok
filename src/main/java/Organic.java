@@ -27,6 +27,7 @@ public class Organic extends VirtualPet{
 		this.boredom = 0;
 		this.thirst = thirst;
 		waste = 0;
+		poops=0; 
 	}
 
 	public void checkStats() {
@@ -47,12 +48,11 @@ public class Organic extends VirtualPet{
 		}
 	}
 	
-	@Override
 	public void tickIncrease() {
 		health -= 1;
 		hunger += 2;
 		boredom += 10;
-		thirst += 1;
+		thirst += 2;
 		waste += 3;
 		this.checkStats();
 	}
@@ -67,7 +67,7 @@ public class Organic extends VirtualPet{
 	
 
 	public void play() {
-		hunger += 10;
+		hunger += 15;
 		health += 5;
 		boredom -= 15;
 		thirst += 10;
@@ -88,6 +88,7 @@ public class Organic extends VirtualPet{
 		thirst += 3;
 		waste += 5;
 		this.checkStats();
+		this.getPoops();
 	}
 
 	public void cleanUp() {

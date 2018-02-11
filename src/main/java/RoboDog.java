@@ -5,7 +5,7 @@ public class RoboDog extends Robotic implements Walkable{
 		this.health = 100;
 		this.rust = 0;
 		this.boredom = 0;
-		this.oilLevel = 10;
+		this.oilLevel = 25;
 	}
 	
 	public RoboDog(String name, String description, int rust, int oilLevel, int health) {

@@ -1,5 +1,5 @@
 
-public class Robotic extends VirtualPet{
+public abstract class Robotic extends VirtualPet{
 
 	protected int boredom;
 	protected int oilLevel; 
@@ -11,6 +11,16 @@ public class Robotic extends VirtualPet{
 		health = 100;
 		boredom = 0;
 		oilLevel = 25; 
+	}
+	
+	public Robotic(String name, String description, int rust, int oilLevel, int health) {
+		this.name = name;
+		this.description = description; 
+		this.health = health;
+		this.rust = rust;
+		this.boredom = 0;
+		this.oilLevel = oilLevel;
+
 	}
 
 
@@ -29,7 +39,6 @@ public class Robotic extends VirtualPet{
 		}
 	}
 	
-	@Override
 	public void tickIncrease() {
 		health -= 1;
 		boredom += 10;

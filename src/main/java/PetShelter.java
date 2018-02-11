@@ -25,17 +25,16 @@ public class PetShelter {
 	}
 
 	public void feedAll() {
-		for (Entry<String, VirtualPet> entry : inhabitants.entrySet()) {
+		for (VirtualPet entry : inhabitants.values()) {
 			if (entry instanceof Organic)
 				((Organic) entry).giveFood();
 		}
 	}
 
 	public void waterAll() {
-		for (Entry<String, VirtualPet> entry : inhabitants.entrySet()) {
+		for (VirtualPet entry : inhabitants.values()) {
 			if (entry instanceof Organic)
 				((Organic) entry).giveWater();
-			;
 		}
 	}
 
@@ -49,9 +48,13 @@ public class PetShelter {
 	}
 
 	public void tickIncreaseAll() {
-		for (Entry<String, VirtualPet> entry : inhabitants.entrySet()) {
-			entry.getValue().tickIncrease();
+		for (VirtualPet entry : inhabitants.values()) {
+			if (entry instanceof Organic)
+				((Organic) entry).tickIncrease();
+			if (entry instanceof Robotic)
+				((Robotic) entry).tickIncrease();
 		}
+
 	}
 
 	public void listStatsAll() {
