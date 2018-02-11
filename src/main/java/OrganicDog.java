@@ -32,5 +32,9 @@ public class OrganicDog extends Organic implements Walkable{
 		this.checkStats();
 	}
 	
+	public int cageCleanliness() {
+		//TODO
+	}
+	
 
 }

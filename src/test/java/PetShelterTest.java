@@ -12,10 +12,6 @@ import org.junit.Test;
 
 public class PetShelterTest {
 	private PetShelter underTest;
-	private OrganicDog oDog = new OrganicDog("Dog1", "");
-	private RoboDog rDog = new RoboDog("Dog2", "");
-	private OrganicCat oCat = new OrganicCat("Dog1", "");
-	private RoboCat rCat = new RoboCat("Cat2", "");
 
 	@Before
 	public void setup() {
@@ -26,7 +22,8 @@ public class PetShelterTest {
 
 	@Test
 	public void shouldOrganicDogAndRoboticDog() {
-
+		OrganicDog oDog = new OrganicDog("Dog1", "");
+		RoboDog rDog = new RoboDog("Dog2", "");
 		underTest.addPet(oDog);
 		underTest.addPet(rDog);
 		Collection<VirtualPet> pets = underTest.allPets();
@@ -36,15 +33,16 @@ public class PetShelterTest {
 
 	@Test
 	public void shouldRemoveAPet() {
+		RoboDog rDog = new RoboDog("Dog2", "");
 		underTest.addPet(rDog);
 		underTest.adopt("Dog2");
-
 		VirtualPet found = underTest.findPet(rDog.name);
 		assertThat(found, is(nullValue()));
 	}
 
 	@Test
 	public void hungerShouldReduce() {
+		OrganicDog oDog = new OrganicDog("", "");
 		underTest.addPet(oDog);
 		oDog.play();
 		oDog.play();
@@ -56,24 +54,19 @@ public class PetShelterTest {
 
 	@Test
 	public void hungerShouldReduceForBoth() {
-		OrganicDog nDog = new OrganicDog("New", "");
-		// underTest.addPet(oDog);
-		// underTest.addPet(oCat);
+		OrganicDog nDog = new OrganicDog("", "");
 		underTest.addPet(nDog);
-		// oDog.play();
-		// oCat.play();
 		nDog.play();
 		int hungerBefore = nDog.getHunger();
-		// int hungerBefore1 = oCat.getHunger();
 		underTest.feedAll();
 		int hungerAfter = nDog.getHunger();
-		// int hungerAfter1 = oCat.getHunger();
 		assertThat(hungerBefore - hungerAfter, is(10));
-		// assertThat(hungerBefore1-hungerAfter1, is(5));
 	}
 
 	@Test
 	public void boredomShouldGoDown() {
+		OrganicDog oDog = new OrganicDog("TEST","");
+		RoboCat rCat = new RoboCat("TEST2","");
 		oDog.cleanUp();
 		oDog.play();
 		rCat.maintain();
@@ -85,13 +78,14 @@ public class PetShelterTest {
 
 	@Test
 	public void statsShouldChangeOverTimeForAllPets() {
+		OrganicDog oDog = new OrganicDog("TEST","");
+		RoboCat rCat = new RoboCat("TEST2","");
 		underTest.addPet(oDog);
 		underTest.addPet(rCat);
-		int thirstBefore = oDog.getThirst();
 		underTest.tickIncreaseAll();
 		int thirstAfter = oDog.getThirst();
 		int check1 = rCat.getOilLevel();
-		assertThat(thirstAfter - thirstBefore, is(2));
+		assertThat(thirstAfter, is(2));
 		assertEquals(24, check1);
 	}
 
@@ -99,9 +93,7 @@ public class PetShelterTest {
 	public void shouldIncreaseThirstForOrganics() {
 		OrganicDog nDog = new OrganicDog("", "");
 		underTest.addPet(nDog);
-
 		underTest.tickIncreaseAll();
-		;
 		int thirstBefore = nDog.getThirst();
 		underTest.waterAll();
 		int thirstAfter = nDog.getThirst();
@@ -111,12 +103,12 @@ public class PetShelterTest {
 
 	@Test
 	public void shouldNotifyForExcessWaste() {
-		OrganicDog tDog = new OrganicDog("",""); 
+		OrganicDog tDog = new OrganicDog("", "");
 		underTest.addPet(tDog);
 		underTest.feedAll();
 		underTest.feedAll();
 		int check = tDog.getPoops();
-		assertEquals(1, check);
+		assertEquals(2, check);
 	}
 
 	// @Test
