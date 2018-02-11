@@ -73,4 +73,8 @@ public abstract class Robotic extends VirtualPet{
 		return boredom;
 	}
 
+	public int getRust() {
+		return rust;
+	}
+
 }
