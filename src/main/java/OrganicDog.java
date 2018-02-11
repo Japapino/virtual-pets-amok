@@ -21,7 +21,6 @@ public class OrganicDog extends Organic implements Walkable{
 		waste = 0;
 	}
 
-	
 	public void takeWalk() {
 		boredom -= 5;
 		waste = 0;
@@ -32,8 +31,16 @@ public class OrganicDog extends Organic implements Walkable{
 		this.checkStats();
 	}
 	
-	public void cageCleanliness() {
-		//TODO
+	@Override
+	public int getPoops() {
+		poops = 0;
+		if (this.waste >= 10) {
+			poops += (waste / 10);
+		}
+		return poops;
+	}
+	public int cageCleanliness() {
+		return poops; 
 	}
 	
 

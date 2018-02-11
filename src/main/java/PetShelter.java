@@ -95,7 +95,7 @@ public class PetShelter {
 	public void checkCages() {
 		for (VirtualPet entry : inhabitants.values()) {
 			if (entry instanceof OrganicDog)
-				((Organic) entry).getPoops();
+				System.out.println(((Organic) entry).getPoops());
 		}
 	}
 
@@ -106,8 +106,8 @@ public class PetShelter {
 		}
 	}
 
-	public void giveTreatTo(String response) {
-		inhabitants.get(response).giveTreat();
-	}
+//	public void giveTreatTo(String response) {
+//		inhabitants.get(response).giveTreat();
+//	}
 
 }
