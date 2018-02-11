@@ -77,9 +77,10 @@ public class PetShelter {
 
 	public void checkCages() {
 		for (VirtualPet entry : inhabitants.values()) {
-			if (entry instanceof OrganicDog)
+			if (entry instanceof OrganicDog) {
 				System.out.print(entry.getName() + " ");
-			System.out.println(((Organic) entry).getPoops());
+				System.out.println(((Organic) entry).getPoops());
+			}
 		}
 	}
 
