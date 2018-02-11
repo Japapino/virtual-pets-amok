@@ -55,53 +55,59 @@ public class PetShelter {
 				((Robotic) entry).play();
 		}
 	}
-	//
-	// public void listStatsAll() {
-	// System.out.print("Name\t");
-	// System.out.print("|Hunger\t");
-	// System.out.print("|Thirst\t");
-	// System.out.print("|Boredom");
-	// System.out.println("|Waste\t");
-	// System.out.println("--------|-------|-------|-------|-------");
-	// for (Entry<String, Dog> entry : inhabitants.entrySet()) {
-	// System.out.print(entry.getValue().getName() + "\t");
-	// System.out.print("|" + entry.getValue().getHunger() + "\t");
-	// System.out.print("|" + entry.getValue().getThirst() + "\t");
-	// System.out.print("|" + entry.getValue().getBoredom() + "\t");
-	// System.out.println("|" + entry.getValue().getWaste() + "\t");
-	// }
-	// System.out.println("--------|-------|-------|-------|------");
-	// }
-	//
-	// public Set<String> listNames() {
-	// Set<String> petsNames = inhabitants.keySet();
-	// return petsNames;
-	// }
-	//
-	// public boolean checkForPet(String name) {
-	// return inhabitants.containsKey(name);
-	// }
-	//
-	// public void cleanHabitats() {
-	// for (Entry<String, Dog> entry : inhabitants.entrySet()) {
-	// entry.getValue().cleanUp();
-	// ;
-	// }
-	// }
-	//
-	// public void giveTreatTo(String response) {
-	// inhabitants.get(response).giveTreat();
-	// }
-	//
-	// public String cleanliness() {
-	// String needsCleaning = "";
-	// for (Dog pet : inhabitants.values()) {
-	// if (pet.getPoops() >= 1) {
-	// needsCleaning += pet.getName() + " ";
-	// }
-	// }
-	//
-	// return needsCleaning;
-	// }
+
+	public String cleanliness() {
+		String needsCleaning = "";
+		for (VirtualPet pet : inhabitants.values()) {
+			if (((Organic) pet).getPoops() >= 1) {
+				needsCleaning += pet.getName() + " ";
+			}
+		}
+		return needsCleaning;
+	}
+
+	public void listStatsAll() {
+		System.out.print("Name\t");
+		System.out.print("|Hunger\t");
+		System.out.print("|Thirst\t");
+		System.out.print("|Boredom");
+		System.out.println("|Waste\t");
+		System.out.println("--------|-------|-------|-------|-------");
+		for (Entry<String, VirtualPet> entry : inhabitants.entrySet()) {
+			System.out.print(entry.getValue().getName() + "\t");
+			System.out.print("|" + ((Organic) entry).getHunger() + "\t");
+			System.out.print("|" + ((Organic) entry).getThirst() + "\t");
+			System.out.print("|" + entry.getValue().getBoredom() + "\t");
+			System.out.println("|" + ((Organic) entry).getWaste() + "\t");
+		}
+		System.out.println("--------|-------|-------|-------|------");
+	}
+
+	public Set<String> listNames() {
+		Set<String> petsNames = inhabitants.keySet();
+		return petsNames;
+	}
+
+	public boolean checkForPet(String name) {
+		return inhabitants.containsKey(name);
+	}
+
+	public void checkCages() {
+		for (VirtualPet entry : inhabitants.values()) {
+			if (entry instanceof OrganicDog)
+				((Organic) entry).getPoops();
+		}
+	}
+
+	public void cleanHabitats() {
+		for (VirtualPet entry : inhabitants.values()) {
+			if (entry instanceof OrganicDog)
+				((Organic) entry).cleanCage();
+		}
+	}
+
+	public void giveTreatTo(String response) {
+		inhabitants.get(response).giveTreat();
+	}
 
 }

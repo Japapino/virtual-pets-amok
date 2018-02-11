@@ -67,7 +67,7 @@ public class PetShelterTest {
 	public void boredomShouldGoDown() {
 		OrganicDog oDog = new OrganicDog("TEST","");
 		RoboCat rCat = new RoboCat("TEST2","");
-		oDog.cleanUp();
+		oDog.cleanCage();
 		oDog.play();
 		rCat.maintain();
 		rCat.play();
@@ -103,39 +103,23 @@ public class PetShelterTest {
 
 	@Test
 	public void shouldNotifyForExcessWaste() {
-		OrganicDog tDog = new OrganicDog("", "");
+		OrganicDog tDog = new OrganicDog("test dog", "");
 		underTest.addPet(tDog);
 		underTest.feedAll();
-		underTest.feedAll();
+		underTest.feedAll(); 
 		int check = tDog.getPoops();
-		assertEquals(2, check);
+		assertEquals(1, check);
 	}
 
-	// @Test
-	// public void poopsShouldBuildUp() {
-	// Dog anotherPet = new Dog("TEST2", "VPET2");
-	// underTest.addPet(anotherPet);
-	// underTest.feedAll();
-	// underTest.feedAll();
-	// underTest.feedAll();
-	// underTest.feedAll();
-	// int check = pet.getPoops();
-	// int check1 = anotherPet.getPoops();
-	// assertEquals(2, check);
-	// assertEquals(2, check1);
-	// }
-	//
-	// @Test
-	// public void shouldCheckCleanlinessAndReturnUncleanKeys() {
-	// Dog anotherPet = new Dog("TEST2", "VPET2");
-	// underTest.addPet(anotherPet);
-	// underTest.feedAll();
-	// underTest.feedAll();
-	// boolean check = underTest.cleanliness().contains("TEST");
-	// boolean check1 = underTest.cleanliness().contains("TEST2");
-	// assertEquals(true, check);
-	// assertEquals(true, check1);
-	//
-	// }
+	 @Test
+	 public void shouldCheckCleanlinessAndReturnUncleanKeys() {
+	 OrganicDog tDog = new OrganicDog("TEST2", "");
+	 underTest.addPet(tDog);
+	 underTest.feedAll();
+	 underTest.feedAll();
+	 boolean check = underTest.cleanliness().contains("TEST");
+	 assertEquals(true, check);
+	 }
+	 
 
 }

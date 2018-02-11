@@ -92,7 +92,7 @@ public class Organic extends VirtualPet {
 		this.getPoops();
 	}
 
-	public void cleanUp() {
+	public void cleanCage() {
 		waste = 0;
 		boredom += 25;
 		poops = 0;
@@ -113,6 +113,7 @@ public class Organic extends VirtualPet {
 	}
 
 	public int getPoops() {
+		poops = 0;
 		if (this.waste >= 10) {
 			poops += (waste / 10);
 		}
