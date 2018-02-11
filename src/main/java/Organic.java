@@ -89,7 +89,7 @@ public class Organic extends VirtualPet {
 		thirst += 3;
 		waste += 5;
 		this.checkStats();
-		this.getPoops();
+//		this.getPoops();
 	}
 
 	public void cleanCage() {

@@ -11,8 +11,10 @@ public class virtualPetShelterApp2 {
 		myShelter.feedAll();
 		myShelter.feedAll(); 
 		myShelter.checkCages(); 
+		myShelter.cleanHabitats();
+		myShelter.checkCages(); 
 		
-		
+
 	}
 
 }

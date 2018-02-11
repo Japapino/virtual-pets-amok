@@ -7,7 +7,7 @@ public class OrganicDog extends Organic implements Walkable{
 		hunger = 0;
 		thirst = 0;
 		boredom = 0;
-		waste = 20;
+		waste = 0;
 		poops = 0;
 
 	}
