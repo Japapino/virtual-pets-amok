@@ -9,7 +9,6 @@ public class OrganicDog extends Organic implements Walkable{
 		boredom = 0;
 		waste = 0;
 		poops = 0;
-
 	}
 
 	public OrganicDog(String name, String description, int hunger, int thirst, int health) {
