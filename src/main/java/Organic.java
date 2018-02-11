@@ -1,6 +1,6 @@
 
-public class Organic extends VirtualPet{
-	
+public class Organic extends VirtualPet {
+
 	protected int waste;
 	protected int thirst;
 	protected int hunger;
@@ -9,7 +9,7 @@ public class Organic extends VirtualPet{
 
 	public Organic(String name, String description) {
 		this.name = name;
-		this.description = description; 
+		this.description = description;
 		health = 100;
 		hunger = 0;
 		thirst = 0;
@@ -21,13 +21,13 @@ public class Organic extends VirtualPet{
 
 	public Organic(String name, String description, int hunger, int thirst, int health) {
 		this.name = name;
-		this.description = description; 
+		this.description = description;
 		this.health = health;
 		this.hunger = hunger;
 		this.boredom = 0;
 		this.thirst = thirst;
 		waste = 0;
-		poops=0; 
+		poops = 0;
 	}
 
 	public void checkStats() {
@@ -47,7 +47,7 @@ public class Organic extends VirtualPet{
 			this.waste = 0;
 		}
 	}
-	
+
 	public void tickIncrease() {
 		health -= 1;
 		hunger += 2;
@@ -64,7 +64,6 @@ public class Organic extends VirtualPet{
 		waste += 5;
 		this.checkStats();
 	}
-	
 
 	public void play() {
 		hunger += 15;
@@ -74,6 +73,7 @@ public class Organic extends VirtualPet{
 		this.checkStats();
 	}
 
+	@Override
 	public void giveWater() {
 		hunger -= 3;
 		thirst -= 10;
@@ -82,6 +82,7 @@ public class Organic extends VirtualPet{
 		this.checkStats();
 	}
 
+	@Override
 	public void giveFood() {
 		hunger -= 10;
 		health -= 2;
@@ -103,16 +104,13 @@ public class Organic extends VirtualPet{
 		return waste;
 	}
 
-	
 	public int getHunger() {
 		return hunger;
 	}
 
-
 	public int getThirst() {
 		return thirst;
 	}
-
 
 	public int getPoops() {
 		if (this.waste >= 10) {
@@ -120,7 +118,6 @@ public class Organic extends VirtualPet{
 		}
 		return poops;
 	}
-
 
 	public int getBoredom() {
 		return boredom;
