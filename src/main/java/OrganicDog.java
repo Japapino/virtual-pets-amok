@@ -32,10 +32,11 @@ public class OrganicDog extends Organic implements Walkable{
 	
 	@Override
 	public int getPoops() {
-		poops = 0;
 		if (this.waste >= 10) {
-			poops += (waste / 10);
+			poops += 1;
+			this.waste=0; 
 		}
+		
 		return poops;
 	}
 	public int cageCleanliness() {

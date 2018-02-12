@@ -7,17 +7,14 @@ import java.util.HashMap;
 public class PetShelter {
 
 	private Map<String, VirtualPet> inhabitants = new HashMap<String, VirtualPet>();
+	private int litterBox = 0;
 
 	public void addPet(VirtualPet pet) {
 		inhabitants.put(pet.name, pet);
 	}
-
+	
 	public VirtualPet findPet(String name) {
 		return inhabitants.get(name);
-	}
-
-	public Collection<VirtualPet> allPets() {
-		return inhabitants.values();
 	}
 
 	public void adopt(String petName) {
@@ -79,7 +76,7 @@ public class PetShelter {
 		for (VirtualPet entry : inhabitants.values()) {
 			if (entry instanceof OrganicDog) {
 				System.out.print(entry.getName() + " ");
-				System.out.println(((Organic) entry).getPoops());
+				System.out.println(((OrganicDog) entry).getPoops());
 			}
 		}
 	}
@@ -174,4 +171,36 @@ public class PetShelter {
 		((Organic) inhabitants.get(response)).giveTreat();
 	}
 
+	public int litterBoxCheck() {
+		for (VirtualPet entry : inhabitants.values()) {
+			if (entry instanceof OrganicCat) {
+				litterBox += ((OrganicCat) entry).getPoops();
+			}
+		}
+		return litterBox;
+	}
+
+	public void cleanLitterBox() {
+		litterBox = 0;
+	}
+
+	public void listDogs() {
+		System.out.println("The live dogs are: ");
+		for (VirtualPet entry : inhabitants.values()) {
+			if (entry instanceof OrganicDog) {
+				System.out.println(entry.getName() + ",");
+			}
+		}
+		System.out.println("The robotic dogs are: ");
+		for (VirtualPet entry : inhabitants.values()) {
+			if (entry instanceof RoboDog) {
+				System.out.println(entry.getName() + ",");
+			}
+		}
+	}
+
+	public void takeForAWalk(String response) {
+		if (inhabitants.get(response) instanceof OrganicDog)
+			((OrganicDog) inhabitants.get(response)).takeWalk();
+	}
 }

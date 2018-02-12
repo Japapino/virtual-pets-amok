@@ -113,11 +113,7 @@ public class Organic extends VirtualPet {
 	}
 
 	public int getPoops() {
-		poops = 0;
-		if (this.waste >= 10) {
-			poops += (waste / 10);
-		}
-		return poops;
+		return poops; 
 	}
 
 	public int getBoredom() {

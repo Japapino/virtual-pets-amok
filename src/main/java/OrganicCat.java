@@ -18,5 +18,14 @@ public class OrganicCat extends Organic {
 		this.thirst = thirst;
 		waste = 0;
 	}
+	@Override
+	public int getPoops() {
+
+		if (this.waste >= 10) {
+			poops += (waste / 10);
+			this.waste = 0; 
+		}
+		return poops;
+	}
 
 }
