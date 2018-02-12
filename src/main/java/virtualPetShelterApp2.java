@@ -38,7 +38,7 @@ public class virtualPetShelterApp2 {
 		System.out.println("---Robotic---");
 		myShelter.listRobotics(); 
 		System.out.println();
-		System.out.println("Status of cages: ");
+		System.out.println("Poop count in cages: ");
 		myShelter.checkCages(); 
 		
 		while(!response.equals("quit")) {
@@ -64,11 +64,61 @@ public class virtualPetShelterApp2 {
 					System.out.println("Pet not found");
 				}
 			}
-
-
+			
+			//adopt
+			if(response.equals("4")) {
+				
+			}
+			
+			//add pet
+			if(response.equals("5")) {
+				
+			}
+			
+			if(response.equals("6")) {
+				System.out.println("Clean dog cages? Litterbox? Or a robotic companions?(cages/litterbox/robot)");
+				response=input.nextLine(); 
+				
+				if(response.equals("cages"))
+				myShelter.cleanHabitats();
+				
+				if(response.equals("litterbox"))
+//					myShelter.cleanLitterBox(); 
+					System.out.println("TESTING");
+				
+				if(response.equals("robot")) {
+					myShelter.cleanAllRobots(response); 
+					System.out.println("All robotic friends have had their oil changed and rust removed!");
+				}
+				
+			}
+			//give treat
+			if(response.equals("7")) {
+				System.out.println("Which pet would you like to give a treat to?"); 
+				myShelter.listOrganics(); 
+				response = input.nextLine(); 
+				myShelter.giveTreatTo(response); 
+				
+			}
+			
+			myShelter.tickIncreaseAll(); 
+			
+			System.out.println("---Organic---");
+			myShelter.listOrganics(); 
+			System.out.println("--------|-------|-------|-------|-------");
+			System.out.println("---Robotic---");
+			myShelter.listRobotics(); 
+			System.out.println();
+			System.out.println("Poop count in cages: ");
+			myShelter.checkCages(); 
+			System.out.println("Status of litterbox: ");
+			System.out.println("ERR");
 			
 		}
 		
+		System.out.println("Thanks for visiting!");
+		input.close(); 
+		System.exit(0);
 	}
 
 }

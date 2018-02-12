@@ -161,8 +161,17 @@ public class PetShelter {
 		}
 	}
 
-	// public void giveTreatTo(String response) {
-	// inhabitants.get(response).giveTreat();
-	// }
+	public void cleanAllRobots(String response) {
+		for (VirtualPet entry : inhabitants.values()) {
+			if (entry instanceof Robotic) {
+				((Robotic) entry).maintain();
+
+			}
+		}
+	}
+
+	public void giveTreatTo(String response) {
+		((Organic) inhabitants.get(response)).giveTreat();
+	}
 
 }

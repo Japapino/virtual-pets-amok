@@ -85,7 +85,6 @@ public class virtualPetShelterApp {
 				System.out.println("Which pet would you like to give a treat to?");
 				myShelter.giveTreatTo(response);
 				System.out.println("You gave " + response + " a hotdog.");
-
 			}
 
 			myShelter.tickIncreaseAll();
