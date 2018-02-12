@@ -21,7 +21,7 @@ public class PetShelterTest {
 	}
 
 	@Test
-	public void shouldOrganicDogAndRoboticDog() {
+	public void shouldAddOrganicDogAndRoboticDog() {
 		OrganicDog oDog = new OrganicDog("Dog1", "");
 		RoboDog rDog = new RoboDog("Dog2", "");
 		underTest.addPet(oDog);

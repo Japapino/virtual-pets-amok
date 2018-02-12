@@ -1,6 +1,6 @@
 
 public class OrganicCat extends Organic {
-
+	
 	public OrganicCat(String name, String description) {
 		super(name, description);
 		health = 100;

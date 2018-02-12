@@ -1,5 +1,5 @@
 
-public class Organic extends VirtualPet {
+public abstract class Organic extends VirtualPet {
 
 	protected int waste;
 	protected int thirst;

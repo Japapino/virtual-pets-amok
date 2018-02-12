@@ -203,4 +203,8 @@ public class PetShelter {
 		if (inhabitants.get(response) instanceof OrganicDog)
 			((OrganicDog) inhabitants.get(response)).takeWalk();
 	}
+
+	public Collection<VirtualPet> allPets() {
+		return inhabitants.values();
+	}
 }

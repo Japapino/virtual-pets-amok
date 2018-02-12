@@ -26,12 +26,10 @@ public abstract class VirtualPet {
 	}
 
 	public void giveWater() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void giveFood() {
-		// TODO Auto-generated method stub
 		
 	}
 	
