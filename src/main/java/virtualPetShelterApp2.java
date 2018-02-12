@@ -84,6 +84,53 @@ public class virtualPetShelterApp2 {
 			
 			//add pet
 			if(response.equals("5")) {
+				System.out.println("We are always glad to have new friends.");
+				System.out.println("But first we have some questions: ");
+				System.out.println("We need some info before we can admit them please answer some questions.");
+				System.out.println("What is their name?");
+				String name = input.nextLine();
+				System.out.println("How would you describe them.");
+				String description = input.nextLine();
+				System.out.println("Are they a living animal?(y/n)");
+				response = input.nextLine();
+				if (response.equals("y")) {
+					System.out.println("Are they a cat or dog?");
+					String type = input.nextLine();
+					System.out.println("On a scale of 1-10, how hungry do they seem?");
+					int hunger = input.nextInt();
+					System.out.println("on a scale of 1-10, how thirsty do they seem?");
+					int thirst = input.nextInt();
+					System.out.println("On a scale of 1-10 how healthy do they seem?");
+					int health = input.nextInt();
+					if(type.equals("cat")) {
+						OrganicCat temp = new OrganicCat(name,description,hunger,thirst,health);
+						myShelter.addPet(temp);
+					}
+					if(type.equals("dog")) {
+						OrganicDog temp = new OrganicDog(name,description,hunger,thirst,health);
+						myShelter.addPet(temp);
+					}
+				}
+				if(response.equals("n")) {
+					System.out.println("Are they a cat or dog?");
+					String type = input.nextLine();
+					System.out.println("On a scale of 1-10, badly do they need an oil change?");
+					int oil = input.nextInt();
+					System.out.println("on a scale of 1-10, how much rust is there?");
+					int rust = input.nextInt();
+					System.out.println("On a scale of 1-10 how healthy do they seem?");
+					int health = input.nextInt();
+					if(type.equals("cat")) {
+						RoboCat temp = new RoboCat(name,description,rust,oil,health);
+						myShelter.addPet(temp);
+					}
+					if(type.equals("dog")) {
+						RoboDog temp = new RoboDog(name,description,rust,oil,health);
+						myShelter.addPet(temp);
+					}
+				}	
+				System.out.println("Thanks for bringing them in! We will take good care of them.");
+				input.nextLine(); 
 				
 			}
 			
